@@ -22,10 +22,6 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.token }}
-    - name: Lowercase repo name and username
-      run: |
-      echo "::set-env name=REPO_NAME::$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')"
-      echo "::set-env name=USERNAME::$(echo ${{ github.actor }} | tr '[:upper:]' '[:lower:]')"
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v2
